@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>DEXTERCHEF CSS!!!</title>
+	<link rel="stylesheet" type="text/css" href="/site.min.css">
+  <script src="/jquery.min.js"></script>
+  {{!<script src="/site.js"></script>--}}
+  <script>
+    $(window).ready(function(){
+      $(".setting").click(function(){
+        console.log(this.id);
+        $("div.dc.button").toggleClass(this.id);
+      });
+      $(".button.disabled").click(function(){ return false; });
+    });
+  </script>
+  </head>
+  <body>
+      <div class="dc button">DEFAULT</div>
+      <div class="dc primary button">PRIMARY</div>
+      <div class="dc secondary button">SECONDARY</div>
+      <div class="dc green button">GREEN</div>
+      <div class="dc blue button">BLUE</div>
+      <div class="dc orange button">ORANGE</div>
+      <div class="dc pink button">PINK</div>
+      <div class="dc red button">RED</div>
+<br><br>
+      <button class="dc button setting" id="small">Smallize</button>
+      <button class="dc blue button setting" id="large">Largeize</button>
+      <button class="dc red button setting" id="padded">Padd</button>
+      <button class="dc red button setting" id="outlined">Outlined</button>
+
+      <div class="dc grid test">
+        <div class="row">
+          <div class="one wide column">d</div>
+          <div class="five wide column">d</div>
+          <div class="four wide column">d</div>
+          <div class="two wide column">d</div>
+          <div class="three wide column">d</div>
+          <div class="one wide column">d</div>
+        </div>
+      </div>
+
+      <div id="splashMenu" class="dc three buttons">
+              <a href="/" class="active button" id="homeMenu">
+                Home
+              </a>
+              <a class="button" id="recMenu">
+                Recipes
+              </a>
+              <a href="/users/login" class="disabled button">
+                  Login
+                </a>
+            </div>
+  </body>
+</html>

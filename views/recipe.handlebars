@@ -1,0 +1,17 @@
+<div class="recipes cover" style="background-image: url('/Images/recipes/{{imagesrc}}');">
+    <div class="title">{{qr1.name}}</div>
+    <div class="likes" cnt="{{likes}}"></div>
+</div>
+<div class="recipe">
+    <div class="column">
+      <h2 class="ui header">Ingredients:</h2>
+      <div class="ingredients">
+      {{#each qr1.ingredients}}
+        <div class="ingredient"><img src="{{getImg title}}"></div>
+      {{/each}}
+      </div>
+    </div>
+    <div class="column">1</div>
+    <div class="column">2</div>
+</div>
+<a class="ui white bordered massive circular label"></a>

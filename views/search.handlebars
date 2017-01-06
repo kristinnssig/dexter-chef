@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="two wide column"></div>
+  <div class="twelve wide column">
+    <div class="ui cards">
+        {{#if userSearch}}
+            {{#each results}}
+                <div class="ui card">
+                    <div class="image">
+                        <img src="/images/null.png">
+                    </div>
+                    <div class="content">
+                        <a class="header">{{name}}</a>
+                        <div class="meta">
+                        <span>@{{username}}</span>
+                        </div>
+                        <div class="description">
+                        Kristy is an art director living in New York.
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                        <i class="user icon"></i>
+                        22 Friends
+                        </a>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            {{#each results}}
+                <div class="ui card">
+                    <div class="image">
+                        <img src="/images/null.png">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/recipes/recipe/{{_id}}">{{name}}</a>
+                        <div class="meta">
+                        <span>@{{creator_username}}</span>
+                        </div>
+                        <div class="description">
+                        {{_id}}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                        <i class="heart icon"></i>
+                        {{like}} likes
+                        </a>
+                    </div>
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+  </div>
+  <div class="two wide column"></div>
+</div>

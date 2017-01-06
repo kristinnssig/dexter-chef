@@ -1,0 +1,240 @@
+{{!--<html>
+<head>
+	<title>{{{ title }}}</title>
+</head>
+<body>
+ 
+ 
+    <header>
+      {{#if splash}}
+        <div id="fixedMenu" style="display: none;" class="ui fixed secondary pointing menu">
+      {{else}}
+        <div id="fixedMenu" class="ui fixed secondary pointing menu">
+      {{/if}}
+      <a class="item" id="logoFixedMenu">
+        <img src="/images/DexterChefLogo.png">
+      </a>
+        <a href="/" class="active item" id="homeMenu">
+          Home
+        </a>
+        <a class="item" id="recMenu">
+          Recipes
+        </a>
+        <a class="item" id="friendsMenu">
+          Friends
+        </a>
+        <div class="right menu">
+        {{#if user}}
+          <a href="/users/logout" class="ui item">
+            Logout
+          </a>
+        {{else}}
+        <a href="/users/login" class="ui item">
+            Login
+          </a>
+        {{/if}}
+        </div>
+      </div>
+    </header>
+    {{#if splash}}
+    <div class="mainWrap"><div class="main">
+      <img src="/images/DexterChefLogo.png">
+      
+    <div id="splashMenu" class="ui four item menu"></div>
+      <form class="search stripe45">
+        <h4 class="ui header">Are you looking for something specific?</h4>
+        <div class="searchField">
+            <input type="text" class="searchBox" placeholder="">
+        </div>
+      </form>
+      
+    </div></div>
+ {{/if}}
+ <div class="page">
+	{{{body}}}
+ </div>
+ {{#if success_msg}}
+        <div class="ui message">
+          <i class="close icon"></i>
+          <p>{{success_msg}}</p>
+        </div>
+        <div class="alert alert-success">{{success_msg}}</div>
+    {{/if}}
+
+    {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+    {{/if}}
+
+    {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+</body>
+</html>
+--}}
+
+<html>
+  <head>
+    <title>{{title}}</title>
+	<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/site.min.css">
+  <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
+  <script src="/jquery.min.js"></script>
+  <script src="/semantic/dist/semantic.min.js"></script>
+  <script src="/typed.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/site.js"></script>
+	<script type="text/javascript" src="/slick/slick.min.js"></script>
+  {{#if jqte}}
+  <script src="/jquery-te-1.4.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/jquery-te-1.4.0.css">
+  {{/if}}
+  <script>
+      $(function(){
+          $(".searchBox").typed({
+          strings: ["appetizer", "apple", "avocado", "almond", "bacon", "banana", "barbecue", "beef", "blackberry", "bread", "breakfast", "brown rice", "brunch", "burrito", "cake", "caramel", "carrot", "cheese", "chicken", "chips", "chocolate", "coffee", "cookie", "cream", "cucumber", "cupcake", "curry", "dessert", "dinner", "doughnut", "fish", "French fries", "gingerbread", "gravy", "guacamole", "hamburger", "hot dog", "hot sauce", "iced tea", "ice cream", "jalapeno", "juice", "kebab", "kiwi", "lamb", "lasagna", "lemonade", "macaroni", "mango", "marmalade", "meat", "meatloaf", "melon", "milkshake", "mozzarella", "muffin", "noodles", "oatmeal", "orange", "pancake", "peanut butter", "pepperoni", "pineapple", "pizza", "popsicle", "popcorn", "pork", "potato", "ravioli ^500 ravioli ^1000 what's in the pocketoli", "ribs", "salad", "salmon", "sandwich", "snack", "taco", "tofu", "tomato", "tortilla", "turkey", "vegetable", "vegan", "wasabi", "yogurt", "watermelon", "waffle", "zucchini"],
+        typeSpeed: 100,
+       startDelay: 1000,
+        backSpeed: 10,
+           shuffle: true,
+         backDelay: 1000,
+              loop: true,
+              attr: "placeholder"
+          });
+
+          var width = $( "#logoSplash" ).width();
+          var height = width / 3.434173669467787;
+          $( "#logoSplash" ).height(height);
+
+          $( window ).resize(function() {
+            width = $( "#logoSplash" ).width();
+            height = width / 3.434173669467787;
+            $( "#logoSplash" ).height(height);
+          });
+          $('.message .close')
+            .on('click', function() {
+              $(this)
+                .closest('.message')
+                .transition('fade');
+            });
+          $("#searchSend").click(function(){
+            sendSearch();
+          });
+          $("[name=searchBox]").keyup(function(e){
+            if(e.keyCode == 13){
+              sendSearch();
+            }
+          });
+          {{#if jqte}}
+              $(".jqte-use").jqte();
+          {{/if}}
+      });
+  </script>
+  </head>
+  <body>
+    {{#if splash}}
+    <div id="slider"></div>
+    {{/if}}
+    <div class="ui grid">
+      <div class="stretched row" id="menu">
+        <div class="two wide column"></div>
+        <div class="four wide column"><img id="logoSplash" src="/images/DexterChefLogo.png"></div>
+        <div class="eight wide column">
+          <div>
+            <div id="splashMenu" class="ui three item menu">
+              <a href="/" class="active item" id="homeMenu">
+                Home
+              </a>
+              <a class="item" href="/recipes/" id="recMenu">
+                Recipes
+              </a>
+              {{#if user}}
+                <div class="ui simple dropdown item">
+                    Hey, {{user.name}}
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                    <a class="item" href="/recipes/add">New Recipe</a>
+                    <a class="item" href="/account/recipes">My Recipes</a>
+                    <div class="divider"></div>
+                    <a class="item">Edit Profile</a>
+                    <a class="item" href="/users/logout">Logout</a>
+                    </div>
+                </div>
+              {{else}}
+              <a href="/users/login" class="item">
+                  Login
+                </a>
+              {{/if}}
+            </div>
+          </div>
+          <div><form method="GET" action="/search/" id="search">
+            <div class="searchField">
+                <div class="ui fluid icon input">
+                  
+                    <input type="text" name="q" class="searchBox" {{#if searchQuery}} value="{{searchQuery}}" {{/if}} placeholder="Search...">
+                    <i class="inverted circular search link icon"onclick="$('#search').submit()" id="searcsSend"></i>
+                  
+                </div>
+            </div></form>
+          </div>
+        </div>
+        <div class="two wide column">
+        </div>
+      </div>
+    {{#if success_msg}}
+    <div class="row">
+        <div class="four wide column"></div>
+        <div class="eight wide column">
+        <div class="ui success message">
+          <i class="close icon"></i>
+          <div class="header">{{success_msg}}</div>
+        </div>
+        </div>
+        <div class="four wide column"></div>
+      </div>
+    {{/if}}
+
+    {{#if error_msg}}
+    <div class="row">
+        <div class="four wide column"></div>
+        <div class="eight wide column">
+        <div class="ui error message">
+          <i class="close icon"></i>
+          <div class="header">{{error_msg}}</div>
+        </div>
+        </div>
+        <div class="four wide column"></div>
+      </div>
+    {{/if}}
+
+    {{#if error}}
+    <div class="row">
+        <div class="four wide column"></div>
+        <div class="eight wide column">
+        <div class="ui error message">
+          <i class="close icon"></i>
+          <div class="header">{{error}}</div>
+        </div>
+      </div>
+        <div class="four wide column"></div>
+      </div>
+    {{/if}}
+    <div class="dc page">
+    {{{body}}}
+    </div>
+    </div>
+    {{#if splash}}
+    <script>
+      $(document).ready(function(){
+        $('#featured-slider').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				autoplay: true,
+				lazyLoad: true
+			});
+      });
+    </script>
+    {{/if}}
+  </body>
+</html>

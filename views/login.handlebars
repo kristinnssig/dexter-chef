@@ -1,0 +1,96 @@
+{{#if user}}
+  <div class="ui container">
+    <div class="ui negative large message">
+    <i class="close icon"></i>
+    <div class="header">
+        Hey you!
+    </div>
+    <p>Yes you, you did something wrong, take a look at this small flow chart will you.
+    </p></div>
+    <div class="ui fluid steps">
+        <div class="disabled step">
+            <i class="browser icon"></i>
+            <div class="content">
+            <div class="title">Dexterchef.com</div>
+            <div class="description">You came to the site.</div>
+            </div>
+        </div>
+        <div class="step">
+            <i class="user icon"></i>
+            <div class="content">
+            <div class="title">Login</div>
+            <div class="description">You logged in.</div>
+            </div>
+        </div>
+        <div class="active step">
+            <i class="user remove icon"></i>
+            <div class="content">
+            <div class="title">Login</div>
+            <div class="description">You tried to log in again, that's not right, please log out to log in!</div>
+            </div>
+        </div>
+    </div>
+  </div>
+{{else}}
+<div class="row">
+    <div class="two wide column"></div>
+  
+    <div class="five wide column">
+        <h4 class="ui horizontal divider header">
+            <i class="user icon"></i>
+            Login
+        </h4>
+        <div class="ui segment">
+        <form method="post" class="ui attached form" action="/users/login">
+            <div class="field">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="ui primary button">Submit</button>
+        </form>
+        </div>
+    </div>
+    <div class="two wide column" style="position: relative;">
+        <div class="ui vertical divider">
+            Or
+        </div>
+    </div>
+    <div class="five wide column">
+        <h4 class="ui horizontal divider header">
+            <i class="add user icon"></i>
+            Register
+        </h4>
+      <div class="ui segment">
+        <form method="post" class="ui form" action="/users/register">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" placeholder="Name" name="name">
+            </div>
+            <div class="field">
+                <label>Username</label>
+                <input type="text" placeholder="Username" name="username">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="email" placeholder="Email" name="email">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" placeholder="Password" name="password">
+            </div>
+            <div class="field">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Password" name="password2">
+            </div>
+            <button type="submit" class="ui secondary button">Submit</button>
+        </form>
+      </div>
+    </div>
+  
+    <div class="two wide column"></div>
+</div>
+{{/if}}

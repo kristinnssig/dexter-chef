@@ -1,0 +1,47 @@
+<div class="stretched row">
+    <div class="five wide column"></div>
+    <div class="six wide column">
+{{#if errors}}
+   <div class="ui error attached message">
+        <div class="header">
+            Some errors occurred!
+        </div>
+        <ul class="list">
+      {{#each errors}}
+        <li>{{msg}}</li>
+      {{/each}}
+        </ul>
+   </div>
+{{/if}}
+        <form method="post" class="ui form attached fluid segment" action="/users/register">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" placeholder="Name" name="name">
+            </div>
+            <div class="field">
+                <label>Username</label>
+                <input type="text" placeholder="Username" name="username">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="email" placeholder="Email" name="email">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" placeholder="Password" name="password">
+            </div>
+            <div class="field">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Password" name="password2">
+            </div>
+            <button type="submit" class="ui primary fluid button">Submit</button>
+        </form>
+        <div class="ui warning bottom attached message">
+                <div class="header">
+                    Hey you!
+                </div>
+                <p>Have you already signed up? Then you can go ahead and <a href="/users/login">Log In</a></p>
+        </div>
+    </div>
+    <div class="five wide column"></div>
+</div>

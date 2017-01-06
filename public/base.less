@@ -1,0 +1,501 @@
+/* RESET START
+
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700,400);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*
+*   DexterChef Main stylesheet
+*   Written in LESS compiled to CSS
+*   You can not use this for personal or public projects without permission.
+*   
+*   Designed by:
+*   Kristinn Sigurðsson <mortallighting(at)gmail.com>
+*/
+          @default  : #E0E1E2;
+      @primaryColor : #FED027;
+    @secondaryColor : #ED9121;
+  @placeholderColor : #333333;
+             @green : #4CAF50;
+              @blue : #0068cb;
+            @orange : #f19700;
+              @pink : #ff298e;
+               @red : #FF3030;
+
+        @width550px : 100%;
+        @width750px : 90%;
+       @width1000px : 70%;
+       @width1200px : 60%;
+       @width1400px : 70%;
+       @width1500px : 75%;
+       @width1600px : 80%;
+       @width1700px : 82%;
+       @width2000px : 80%;
+    @width2000pxMax : 86%;
+@widthSubtractInPage: 0.068;
+                 @g : 100% /16;
+
+.pageMix(@x) { width: @x - (@x * @widthSubtractInPage ) }
+
+.borderRadius(0) { border-radius: 0; }
+.borderRadius(1) { border-radius: 20px 20px 20px 5px; }
+.borderRadius(2) { border-radius: 10px 10px; }
+.borderRadius(3) { border-radius: 20px 20px; }
+.borderRadius(4) { border-radius: 30px 30px 30px 5px; }
+.borderRadius { border-radius: 30px; }
+
+.b(@x, @z){
+    background-color:@x;
+    color: @z;
+    text-shadow: none;
+    background-image: none;
+    &:hover{
+      background-color: @x - #011;
+    }
+    }
+.o(@x, @z){
+    background-color: rgba(10, 10, 10, 0.5);
+    color: @z;
+    border: solid 2px @x;
+    text-shadow: none;
+    background-image: none;
+    &:hover{
+      background-color: rgba(10%, 10%, 10%, 0.8);
+      border: solid 2px @x - #011;
+    }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.stripes(@deg, @col1, @col2, @space){
+    background: repeating-linear-gradient(
+        @deg,
+        @col1,
+        @col1 @space,
+        @col2 @space,
+        @col2 @space*2
+     );
+}
+#fixedMenu{
+  background: #F3F4F5 !important;
+}
+
+.searchField{
+   padding: 10px;
+   margin: 10px 4px;
+   background: #ff0030;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+   & i.icon{
+      font-size: 0.7em;
+   }
+}
+
+.searchField input[type=text]{
+    width: 100%;
+    border-radius: 5px;
+    border-style: none;
+    outline: none;
+    color: #000;
+    padding: 6px;
+    transition: 0.5s all;
+}
+.searchField input[type=text]:focus{
+    outline: none;
+}
+
+.searchBox::-webkit-input-placeholder { color: @placeholderColor; opacity: 1 !important; }
+.searchBox:-moz-placeholder { color: @placeholderColor;}
+.searchBox::-moz-placeholder {color: @placeholderColor;}
+.searchBox:-ms-input-placeholder {color: @placeholderColor;}
+
+#slider{
+  background-image: url("https://placeholdit.imgix.net/~text?txtsize=33&w=1920&h=400&txt=slider");
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2px;
+}
+#logoSplash{
+  flex-grow: 0;
+}
+#imgCooks{
+  bottom: auto !important;
+}
+#menu{
+  border-bottom: solid 1px gainsboro;
+  background: #FFF;
+  margin-top: 10px;
+}
+body{
+  background: #f5f5f5;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+
+*::selection{
+background-color:#b1d0ff;
+color: #111;
+}
+
+/// BUTTONS ///
+.dc.button::selection, .dc.buttons .button::selection{
+  background-color: transparent;
+  color: inherit;
+}
+
+.dc.button, .dc.buttons .button{
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: 0;
+    border: none;
+    vertical-align: baseline;
+    background: @default;
+    font-weight: 700;
+    color: rgba(0,0,0,.6);
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    &:hover{
+      background-color: #D6D6D6;
+    }
+
+    &.green{.b(@green, #fff)}
+    &.primary{.b(@primaryColor, #fff)}
+    &.secondary{.b(@secondaryColor, #fff)}
+    &.blue{.b(@blue, #fff)}
+    &.orange{.b(@orange, #fff)}
+    &.pink{.b(@pink, #fff)}
+    &.red{.b(@red, #eee)}
+
+    &.outlined{
+      &.green{.o(@green, #fff)}
+      &.primary{.o(@primaryColor, #fff)}
+      &.secondary{.o(@secondaryColor, #fff)}
+      &.blue{.o(@blue, #fff)}
+      &.orange{.o(@orange, #fff)}
+      &.pink{.o(@pink, #fff)}
+      &.red{.o(@red, #eee)}
+      border-radius: 5px;
+    }
+
+    &.small{
+      font-size: 12px;
+      min-height: 0.5em;
+      padding: 10px 24px;
+    }
+    &.large{
+      font-size: 32px;
+      min-height: 1.2em;
+      padding: 20px 40px;
+    }
+    &.padded{
+      padding: 24px 42px;
+      &.small{
+        padding: 15px 30px;
+      }
+      &.large{
+        padding: 26px 48px;
+      }
+    }
+}
+
+//MENU SYSTEM
+
+.dc.buttons{
+  width: 60%;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+/*.dc.buttons:first-child:last-child{
+  border-radius: 5px 0;
+}*/
+.dc.buttons .button{
+  width: 100%;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    margin-left: 0!important;
+    margin-right: 0!important;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    &.active{.b(@primaryColor, #fff)}
+    &.disabled{
+      background-color: @default - #111;
+      cursor: not-allowed;
+    }
+}
+.dc.three.buttons .button{
+  width: 33.3333333%;
+  margin: 0;
+}
+
+// GRID SYSTEM
+.dc.grid {
+  width: 100%;
+
+  & .row::after{
+    content: "";
+    clear: both;
+    display: block;
+  }
+  & .row{
+
+  }
+  & .column{
+    &.one.wide{
+      width: @g;
+    }
+    &.two.wide{
+      width: @g*2;
+    }
+    &.three.wide{
+      width: @g*3;
+    }
+    &.four.wide{
+      width: @g*4;
+    }
+    &.five.wide{
+      width: @g*5;
+    }
+    &.six.wide{
+      width:@g*6;
+    }
+    &.seven.wide{
+      width:@g*7;
+    }
+    &.eight.wide{
+      width:@g*8;
+    }
+    &.nine.wide{
+      width:@g*9;
+    }
+    &.ten.wide{
+      width: @g*10;
+    }
+    &.eleven.wide{
+      width: @g*11;
+    }
+    &.twelve.wide{
+      width: @g*12;
+    }
+    &.thirteen.wide{
+      width: @g*13;
+    }
+    &.fourteen.wide{
+      width: @g*14;
+    }
+    &.fiveteen.wide{
+      width: @g*15;
+    }
+    &.sixteen.wide{
+      width: @g*16;
+    }
+    padding: 0 2px;
+    margin: 0 2px;
+
+  }
+}
+.dc.grid.test .column{
+  background-color: rgba(10,10,10,0.2);
+}
+.dc.page{
+  width: 100%;
+}
+
+.recipes{
+  font-family: Roboto;
+}
+.recipe{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+    & .column:nth-of-type(2){
+      border-left: 1px solid rgb(46%, 46%, 46%);
+      border-right: 1px solid rgb(46%, 46%, 46%);
+    }
+    & .column{
+      background: gray(97%);
+      padding: 20px 40px;
+      margin: 0;
+      flex: 1 0px;
+      
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 1em;
+      text-align: center;
+      & .ingredients{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+        & .ingredient{
+          & img{
+            border-radius: 50%;
+          }
+          padding: 20px 40px;
+          margin: 0;
+          flex: 1 0px;
+          order: 1;
+
+          line-height: 150px;
+          color: white;
+          font-weight: bold;
+          font-size: 1em;
+          text-align: center;
+        }
+      }
+    }
+}
+
+.recipes.cover{
+    width: 100%;
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    & .title:hover{
+      background-color: rgb(80.4%, 80.4%, 80.4%);
+      color: rgb(15.5%, 15.5%, 15.5%);
+      font-weight: 400;
+    }
+    & .title{
+      position: absolute;
+      background-color: rgba(71.4%, 71.4%, 71.4%, 0.6);
+      left: 0;
+      bottom: 40px;
+      font-size: 2em;
+      font-weight: 300;
+      color: #fff;
+      padding: 20px;
+      transition: 0.6s all;
+    }
+    & .likes:hover{
+      background-color: rgb(92.9%, 92.9%, 92.9%);
+    }
+    & .likes::after{
+      border-radius: 0 0 0 5px;
+      font-family: Icons;
+      font-style: normal;
+      font-weight: 400;
+      text-decoration: inherit;
+      text-align: center;
+      speak: none;
+      font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      color: #eee;
+      content: "\f004";
+    }
+    & .likes:hover::after{
+      color: rgb(90.5%, 27.5%, 27.5%);
+    }
+    & .likes::after{
+      content: "\f004";
+    }
+    & .likes:hover::before{
+      color: #111;
+      font-weight: 100;
+    }
+    & .likes::before{
+      content: attr(cnt);
+    }
+    & .likes{
+      position: absolute;
+      background-color: rgba(71.4%, 71.4%, 71.4%, 0.6);
+      right: 0;
+      top: 0;
+      font-size: 2em;
+      font-weight: 300;
+      color: #fff;
+      padding: 20px;
+      transition: 0.6s all;
+      border-radius: 0 0 0 5px;
+      cursor: pointer;
+    }
+}

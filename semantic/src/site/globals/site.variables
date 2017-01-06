@@ -1,0 +1,40 @@
+/*******************************
+     User Global Variables
+*******************************/
+@primaryColor   : #FFDB58;
+@secondaryColor : #FFDB58 - #333;
+@red            : #B03069;
+@orange         : #FE9A76;
+@yellow         : #FFD700;
+@olive          : #32CD32;
+@green          : #016936;
+@teal           : #008080;
+@blue           : #0E6EB8;
+@violet         : #EE82EE;
+@purple         : #B413EC;
+@pink           : #FF1493;
+@brown          : #A52A2A;
+@grey           : #A0A0A0;
+@black          : #000000;
+
+/* Checkbox */
+@checkboxActiveBackground: @primaryColor;
+@checkboxActiveBorderColor: @primaryColor;
+@checkboxActiveCheckColor: @white;
+/* Focused Checkbox */
+@checkboxActiveFocusBackground: @primaryColorFocus;
+@checkboxActiveFocusBorderColor: @primaryColorFocus;
+@checkboxActiveFocusCheckColor: @white;
+@checkboxTransition: none;
+/* Radio */
+@radioActiveBackground: @white;
+@radioActiveBorderColor: @primaryColor;
+@radioActiveBulletColor: @primaryColor;
+/* Focused Radio */
+@radioActiveFocusBackground: @white;
+@radioActiveFocusBorderColor: @primaryColorFocus;
+@radioActiveFocusBulletColor: @primaryColorFocus;
+/* Slider */
+@sliderOnLineColor: @primaryColor;
+/* Focused Slider */
+@sliderOnFocusLineColor: @primaryColorFocus;

@@ -1,0 +1,560 @@
+/* RESET START
+
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700,400);
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*
+*   DexterChef Main stylesheet
+*   Written in LESS compiled to CSS
+*   You can not use this for personal or public projects without permission.
+*   
+*   Designed by:
+*   Kristinn Sigurðsson <mortallighting(at)gmail.com>
+*/
+.borderRadius {
+  border-radius: 30px;
+}
+* {
+  box-sizing: border-box;
+}
+#fixedMenu {
+  background: #F3F4F5 !important;
+}
+.searchField {
+  padding: 10px;
+  margin: 10px 4px;
+  background: #ff0030;
+  color: #fff;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  text-shadow: -1px -1px #aa3030;
+  font-weight: normal;
+}
+.searchField i.icon {
+  font-size: 0.7em;
+}
+.searchField input[type=text] {
+  width: 100%;
+  border-radius: 5px;
+  border-style: none;
+  outline: none;
+  color: #000;
+  padding: 6px;
+  transition: 0.5s all;
+}
+.searchField input[type=text]:focus {
+  outline: none;
+}
+.searchBox::-webkit-input-placeholder {
+  color: #333333;
+  opacity: 1 !important;
+}
+.searchBox:-moz-placeholder {
+  color: #333333;
+}
+.searchBox::-moz-placeholder {
+  color: #333333;
+}
+.searchBox:-ms-input-placeholder {
+  color: #333333;
+}
+#slider {
+  background-image: url("https://placeholdit.imgix.net/~text?txtsize=33&w=1920&h=400&txt=slider");
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2px;
+}
+#logoSplash {
+  flex-grow: 0;
+}
+#imgCooks {
+  bottom: auto !important;
+}
+#menu {
+  border-bottom: solid 1px gainsboro;
+  background: #FFF;
+  margin-top: 10px;
+}
+body {
+  background: #f5f5f5;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+*::selection {
+  background-color: #b1d0ff;
+  color: #111;
+}
+.dc.button::selection,
+.dc.buttons .button::selection {
+  background-color: transparent;
+  color: inherit;
+}
+.dc.button,
+.dc.buttons .button {
+  cursor: pointer;
+  min-height: 1em;
+  outline: 0;
+  vertical-align: baseline;
+  background: #E0E1E2;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.dc.button:hover,
+.dc.buttons .button:hover {
+  background-color: #D6D6D6;
+}
+.dc.button.green,
+.dc.buttons .button.green {
+  background-color: #4CAF50;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.green:hover,
+.dc.buttons .button.green:hover {
+  background-color: #4c9e3f;
+}
+.dc.button.primary,
+.dc.buttons .button.primary {
+  background-color: #FED027;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.primary:hover,
+.dc.buttons .button.primary:hover {
+  background-color: #febf16;
+}
+.dc.button.secondary,
+.dc.buttons .button.secondary {
+  background-color: #ED9121;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.secondary:hover,
+.dc.buttons .button.secondary:hover {
+  background-color: #ed8010;
+}
+.dc.button.blue,
+.dc.buttons .button.blue {
+  background-color: #0068cb;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.blue:hover,
+.dc.buttons .button.blue:hover {
+  background-color: #0057ba;
+}
+.dc.button.orange,
+.dc.buttons .button.orange {
+  background-color: #f19700;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.orange:hover,
+.dc.buttons .button.orange:hover {
+  background-color: #f18600;
+}
+.dc.button.pink,
+.dc.buttons .button.pink {
+  background-color: #ff298e;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.pink:hover,
+.dc.buttons .button.pink:hover {
+  background-color: #ff187d;
+}
+.dc.button.red,
+.dc.buttons .button.red {
+  background-color: #FF3030;
+  color: #eee;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.red:hover,
+.dc.buttons .button.red:hover {
+  background-color: #ff1f1f;
+}
+.dc.button.outlined,
+.dc.buttons .button.outlined {
+  border-radius: 5px;
+}
+.dc.button.outlined.green,
+.dc.buttons .button.outlined.green {
+  background-color: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  border: solid 2px #4CAF50;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.outlined.green:hover,
+.dc.buttons .button.outlined.green:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: solid 2px #4c9e3f;
+}
+.dc.button.outlined.primary,
+.dc.buttons .button.outlined.primary {
+  background-color: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  border: solid 2px #FED027;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.outlined.primary:hover,
+.dc.buttons .button.outlined.primary:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: solid 2px #febf16;
+}
+.dc.button.outlined.secondary,
+.dc.buttons .button.outlined.secondary {
+  background-color: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  border: solid 2px #ED9121;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.outlined.secondary:hover,
+.dc.buttons .button.outlined.secondary:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: solid 2px #ed8010;
+}
+.dc.button.outlined.blue,
+.dc.buttons .button.outlined.blue {
+  background-color: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  border: solid 2px #0068cb;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.outlined.blue:hover,
+.dc.buttons .button.outlined.blue:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: solid 2px #0057ba;
+}
+.dc.button.outlined.orange,
+.dc.buttons .button.outlined.orange {
+  background-color: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  border: solid 2px #f19700;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.outlined.orange:hover,
+.dc.buttons .button.outlined.orange:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: solid 2px #f18600;
+}
+.dc.button.outlined.pink,
+.dc.buttons .button.outlined.pink {
+  background-color: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  border: solid 2px #ff298e;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.outlined.pink:hover,
+.dc.buttons .button.outlined.pink:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: solid 2px #ff187d;
+}
+.dc.button.outlined.red,
+.dc.buttons .button.outlined.red {
+  background-color: rgba(10, 10, 10, 0.5);
+  color: #eee;
+  border: solid 2px #FF3030;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.button.outlined.red:hover,
+.dc.buttons .button.outlined.red:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: solid 2px #ff1f1f;
+}
+.dc.button.small,
+.dc.buttons .button.small {
+  font-size: 12px;
+  min-height: 0.5em;
+  padding: 10px 24px;
+}
+.dc.button.large,
+.dc.buttons .button.large {
+  font-size: 32px;
+  min-height: 1.2em;
+  padding: 20px 40px;
+}
+.dc.button.padded,
+.dc.buttons .button.padded {
+  padding: 24px 42px;
+}
+.dc.button.padded.small,
+.dc.buttons .button.padded.small {
+  padding: 15px 30px;
+}
+.dc.button.padded.large,
+.dc.buttons .button.padded.large {
+  padding: 26px 48px;
+}
+.dc.buttons {
+  width: 60%;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+/*.dc.buttons:first-child:last-child{
+  border-radius: 5px 0;
+}*/
+.dc.buttons .button {
+  width: 100%;
+  padding-left: 0!important;
+  padding-right: 0!important;
+  margin-left: 0!important;
+  margin-right: 0!important;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.dc.buttons .button.active {
+  background-color: #FED027;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+.dc.buttons .button.active:hover {
+  background-color: #febf16;
+}
+.dc.buttons .button.disabled {
+  background-color: #cfd0d1;
+  cursor: not-allowed;
+}
+.dc.three.buttons .button {
+  width: 33.3333333%;
+  margin: 0;
+}
+.dc.grid {
+  width: 100%;
+}
+.dc.grid .row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.dc.grid .column {
+  padding: 0 2px;
+  margin: 0 2px;
+}
+.dc.grid .column.one.wide {
+  width: 6.25%;
+}
+.dc.grid .column.two.wide {
+  width: 12.5%;
+}
+.dc.grid .column.three.wide {
+  width: 18.75%;
+}
+.dc.grid .column.four.wide {
+  width: 25%;
+}
+.dc.grid .column.five.wide {
+  width: 31.25%;
+}
+.dc.grid .column.six.wide {
+  width: 37.5%;
+}
+.dc.grid .column.seven.wide {
+  width: 43.75%;
+}
+.dc.grid .column.eight.wide {
+  width: 50%;
+}
+.dc.grid .column.nine.wide {
+  width: 56.25%;
+}
+.dc.grid .column.ten.wide {
+  width: 62.5%;
+}
+.dc.grid .column.eleven.wide {
+  width: 68.75%;
+}
+.dc.grid .column.twelve.wide {
+  width: 75%;
+}
+.dc.grid .column.thirteen.wide {
+  width: 81.25%;
+}
+.dc.grid .column.fourteen.wide {
+  width: 87.5%;
+}
+.dc.grid .column.fiveteen.wide {
+  width: 93.75%;
+}
+.dc.grid .column.sixteen.wide {
+  width: 100%;
+}
+.dc.grid.test .column {
+  background-color: rgba(10, 10, 10, 0.2);
+}
+.dc.page {
+  width: 100%;
+}
+.recipes.cover {
+  width: 100%;
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.recipes.cover div {
+  position: absolute;
+  background-color: #b6b6b6;
+  left: 0;
+  bottom: 40px;
+  font-size: 2em;
+  font-weight: 300;
+  color: #fff;
+  padding: 20px;
+}

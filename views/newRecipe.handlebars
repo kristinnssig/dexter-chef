@@ -1,0 +1,144 @@
+{{#if errors}}
+    {{#each errors}}
+        {{msg}}
+    {{/each}}
+{{/if}}
+{{resp}}
+{{qr}}
+<div class="row">
+    <div class="two wide column"></div>
+    <div class="five wide column">
+        <div class="ui fluid image">
+            <div class="ui blue button" id="upload-btn">Upload</div>
+            <img id="prim-img" src="/images/null.png">
+            <div></div>
+        </div>
+        <div class="ui progress" id="progressbar-main" style="display: none;">
+            <div class="bar" id="progressbar">
+                <div class="progress"></div>
+            </div>
+            <div class="label">Uploading Image</div>
+        </div>
+        <div class="ui fluid primary button" onclick="$('#addingr').submit()">Submit!</div>
+    </div>
+    <div class="seven wide column">
+        <form class="ui form" method="POST" action=""  id="addingr">
+            <input type="hidden" name="image" value="null.png">
+            <div class="ui big fluid input">
+                <input type="text" name="title" placeholder="Title..">
+            </div>
+            <textarea class="ui input jqte-use" name="desc"></textarea>
+            <div id="ingredients">
+                <input type="hidden" value="0" name="ingr_am">
+                <div id="ingredients-inputs">
+
+                </div>
+                <div class="ui buttons">
+                    <div class="ui button" id="ingredient-add">Add ingredient</div>
+                    <div class="ui button" id="ingredient-rem">Remove ingredient</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="two wide column"></div>
+</div>
+
+<input id="upload-input" style="display: none;" type="file" name="img_upload">
+
+<script>
+    $("#ingredient-add").click(function(){
+        var am = $("[name=ingr_am]");
+        var newAm = parseInt(am.val()) + 1;
+        var boxs = '<div class="fields" id="ingredient-wrap_'+newAm+'">';
+            boxs += '<div class="nine wide field">';
+            boxs +=  '<input type="text" placeholder="Ingredient.." name="ingredient">';
+            boxs += '</div>';
+            boxs += '<div class="three wide field">';
+            boxs +=  '<input type="text" placeholder="Amount.." name="ingredient_amount">';
+            boxs += '</div>';
+            boxs += '<div class="four wide field">';
+            boxs +=  '<input type="text" placeholder="Unit.." name="ingredient_unit">';
+            boxs += '</div>';
+            boxs +='</div>';
+        $("#ingredients-inputs").append(boxs);
+        am.val(newAm);
+    });
+    $("#ingredient-rem").click(function(){
+        var am = $("[name=ingr_am]");
+      if(am.val() > 0){
+        var newAm = parseInt(am.val()) - 1;
+        $("#ingredient-wrap_"+am.val()).remove();
+        am.val(newAm);
+      }
+    });
+
+$('#upload-btn').on('click', function (){
+    $('#upload-input').click();
+    $('#progressbar .progress').text('0%');
+    $('#progressbar').width('0%');
+    $('#progressbar-main').show();
+});
+
+$('#upload-input').on('change', function(){
+
+  var files = $(this).get(0).files;
+
+  if (files.length > 0){
+    // create a FormData object which will be sent as the data payload in the
+    // AJAX request
+    var formData = new FormData();
+
+    // loop through all the selected files and add them to the formData object
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+
+      // add the files to formData object for the data payload
+      formData.append('img_upload', file, file.name);
+    }
+
+    $.ajax({
+      url: '/upload',
+      type: 'POST',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(data){
+          if(data.match("Error:")) {
+              $('#progressbar .progress').html(data);
+              $('#progressbar').width('100%');
+          }
+          $("[name=image]").val(data);
+          $("#prim-img").attr("src", "/images/recipes/"+data);
+      },
+      xhr: function() {
+        // create an XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        // listen to the 'progress' event
+        xhr.upload.addEventListener('progress', function(evt) {
+
+          if (evt.lengthComputable) {
+            // calculate the percentage of upload completed
+            var percentComplete = evt.loaded / evt.total;
+            percentComplete = parseInt(percentComplete * 100);
+
+            // update the Bootstrap progress bar with the new percentage
+            $('#progressbar .progress').text(percentComplete + '%');
+            $('#progressbar').width(percentComplete + '%');
+
+            // once the upload reaches 100%, set the progress bar text to done
+            if (percentComplete === 100) {
+              $('#progressbar .progress').html('Done');
+            }
+
+          }
+
+        }, false);
+
+        return xhr;
+      }
+    });
+
+  }
+});
+</script>
