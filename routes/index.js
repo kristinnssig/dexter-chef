@@ -39,7 +39,7 @@ router.post('/upload', function(req, res){
 
   var form = new formidable.IncomingForm();
 
-  form.multiples = false;
+  form.multiples = true;
 
   form.uploadDir = 'public/images/recipes';
 
@@ -54,7 +54,7 @@ router.post('/upload', function(req, res){
 		console.log(fn);
 		res.send(fn);
 	} else {
-		res.end("Error: ."+ext+" is not allowed...");
+		res.send("Error: ."+ext+" is not allowed...");
 	}
   });
 

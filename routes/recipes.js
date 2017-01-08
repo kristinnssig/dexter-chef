@@ -23,7 +23,7 @@ router.get('/recipe/:q', function(req, res){
 			like = like.toFixed(1);
 			like = like+"K";
 		}else{
-			like = likes+"K";
+			like = likes;
 		}
 		res.render('recipe', {
 			qr1: found,
@@ -104,12 +104,8 @@ router.post('/add', ensureAuth, function(req, res){
 			images : [{ src : image}]
         });
 
-		Recipe.save(newRecipe, function(err, data){
-			console.log(data);
-			res.render('newRecipe',{
-            	resp:data,
-				qr : newRecipe
-        	});
+		newRecipe.save(function(err, found){
+			res.json({title:found.name, id:found._id});
 		});
 	}
 });

@@ -11,7 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/dexterchef');
+mongoose.connect('mongodb://heroku_1cv2945t:u3cgssahe5g7m426d3fm6kteil@ds157158.mlab.com:57158/heroku_1cv2945t');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -22,9 +22,9 @@ var search = require('./routes/search');
 // Init App
 var app = express();
 
-var server = require('http').Server(app);
+/*var server = require('http').Server(app);
 var io = require('socket.io')(server);
-server.listen(3000);
+server.listen(3001);*/
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));

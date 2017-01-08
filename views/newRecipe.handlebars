@@ -19,7 +19,7 @@
             </div>
             <div class="label">Uploading Image</div>
         </div>
-        <div class="ui fluid primary button" onclick="$('#addingr').submit()">Submit!</div>
+        <div class="ui fluid primary button" onclick="$.ajax({type: $('#addingr').attr('method'),url: '',data: $('#addingr').serialize(),success: function (data) {$.ajax({url:'/recipes/recipe/'+data.id,success: function(res){$('html').html(res);}});history.pushState({title:data.title}, data.title, '/recipes/recipe/'+data.id);}});">Submit!</div>
     </div>
     <div class="seven wide column">
         <form class="ui form" method="POST" action=""  id="addingr">
@@ -46,6 +46,39 @@
 <input id="upload-input" style="display: none;" type="file" name="img_upload">
 
 <script>
+    var frm = $("#addingr");
+	var butt = $("#subm");
+    butt.click(function (ev) {
+        $.ajax({
+            type: frm.attr('method'),
+            url: "../send.php",
+            data: frm.serialize(),
+            success: function (data) {
+				$(" input[name=reference] ").val(data);
+				if(document.getElementById("kortaSel").checked == true){
+					$('.page.dimmer').dimmer('show');
+					setTimeout(function(){
+						frm.submit();
+					 }, 300);
+				} else if(document.getElementById("milliSel").checked == true) {
+					$('.page.dimmer spin').html("Sendi þig á millifærslusíðu...");
+					$('.page.dimmer').dimmer('show');
+					$('.page.dimmer').dimmer('closable', false);
+					setTimeout(function(){
+						location.href = "http://hobbyhlutir.is/Checkout/Millifaersla/?q="+data;
+					 }, 300);
+				} else {
+					$('.page.dimmer').dimmer('show');
+					$('.page.dimmer').dimmer('closable', false);
+					setTimeout(function(){
+						frm.submit();
+					 }, 300);
+				}
+            }
+        });
+
+        ev.preventDefault();
+    });
     $("#ingredient-add").click(function(){
         var am = $("[name=ingr_am]");
         var newAm = parseInt(am.val()) + 1;

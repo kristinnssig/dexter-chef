@@ -35,11 +35,11 @@ function notify(title, link, body, img) {
 
 }
 
-var socket = io.connect('http://192.168.1.36:3001');
+/*var socket = io.connect('http://192.168.1.36:3001');
     socket.on('notification', function (data) {
       notify(data.title, data.url, data.body);
       console.log(data.title);
-});
+});*/
 
 $( document ).ready(function(){
     $("#fixedMenu").children().not("#logoFixedMenu").clone().appendTo("#splashMenu");
