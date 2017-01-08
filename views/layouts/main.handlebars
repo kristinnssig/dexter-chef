@@ -125,11 +125,13 @@
               sendSearch();
             }
           });
-          {{#if jqte}}
-              $(".jqte-use").jqte();
-          {{/if}}
       });
   </script>
+  {{#if jqte}}
+  <script>
+      $(".jqte-use").jqte();
+  </script>
+  {{/if}}
   </head>
   <body>
     {{#if splash}}
